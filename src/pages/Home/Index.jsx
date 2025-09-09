@@ -3,6 +3,7 @@ import Header from "../../components/rootLayout/Header/Index";
 import Navbar from "../../components/rootLayout/Navbar/Index";
 import Banner from "../../components/homePage/Banner/Index";
 import FlashSale from "../../components/homePage/FlashSale";
+import Category from "../../components/homePage/Category/Index";
 
 const Homepage = () => {
   return (
@@ -11,6 +12,7 @@ const Homepage = () => {
       <Navbar />
       <Banner />
       <FlashSale />
+      <Category/>
     </div>
   );
 };

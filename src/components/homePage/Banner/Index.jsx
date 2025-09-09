@@ -21,6 +21,8 @@ const Banner = () => {
           bottom: "5%",
           left: "50%",
           transform: "translatex(-50%)",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         <ul

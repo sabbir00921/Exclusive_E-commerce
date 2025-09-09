@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaEllipsisV } from "react-icons/fa";
 
-const Timer = () => {
-  const [time, setTime] = useState(2 * 24 * 60 * 60 * 1000);
+const Timer = ({ timeofOffer }) => {
+  const [time, setTime] = useState(timeofOffer * 24 * 60 * 60 * 1000 || 0);
 
   useEffect(() => {
     const worker = new Worker(
