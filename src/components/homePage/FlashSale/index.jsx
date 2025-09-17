@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductCommonLayout from "../../commoncomponents/ProductCommonLayout";
 import ProductCard from "../../commoncomponents/ProductCard/";
 import { useState } from "react";
+import { useGetAllProductQuery } from "../../../Features/Api/ProductApi";
 
 const FlashSale = () => {
   const [timer, detTimer] = useState(1);
+  const { data, error, isLoading } = useGetAllProductQuery();
+
   return (
     <div className="container">
       <div className="border-b-[1px] border-text-black-gray">
@@ -15,8 +18,9 @@ const FlashSale = () => {
           isAerrow={true}
           heading={"Today's"}
           description={"Flash Sale"}
-          partialItem={10}
+          componentdata={data?.products}
           slidesToShow={5}
+          isLoading={isLoading}
         />
 
         <div className="pb-20">

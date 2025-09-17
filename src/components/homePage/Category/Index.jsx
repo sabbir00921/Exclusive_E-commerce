@@ -28,7 +28,7 @@ const CategoryIndex = () => {
           heading={"Categories"}
           description={"Browse By Category"}
           slidesToShow={6}
-          data={categoryBrowseData}
+          componentdata={categoryBrowseData}
         />
       </div>
     </div>

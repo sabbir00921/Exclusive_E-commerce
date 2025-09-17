@@ -6,23 +6,24 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ProductCardSkeleton from "../../helpers/ProductCardSkeleton";
 
 const ProductCommonLayout = ({
-  ProductCard,
+  ProductCard = () => <ProductCardSkeleton />,
   timeStamp = false,
   timeofOffer = false,
   isAerrow = false,
   heading = "Today's",
   description = "Flash Sale",
   slidesToShow = 5,
-  data = [...new Array(9)],
+  componentdata,
+  isLoading = false,
 }) => {
   const sliderRef = useRef(null);
 
   const settings = {
-    dots: true,
+    dots: isLoading ? true : false,
     infinite: true,
-    speed: 500,
+    speed: 700,
     slidesToShow: slidesToShow,
-    slidesToScroll: 3,
+    slidesToScroll: 5,
     autoplay: true,
     arrows: false,
   };
@@ -58,15 +59,17 @@ const ProductCommonLayout = ({
 
         <div className="slider-container">
           <Slider ref={sliderRef} {...settings}>
-            {data.map((item, index) => (
-              <div key={index} className="px-2">
-                {ProductCard ? (
-                  <ProductCard categorydata={item || {}} />
-                ) : (
-                  <ProductCardSkeleton />
-                )}
-              </div>
-            ))}
+            {(componentdata ? componentdata : [...Array(10)])?.map(
+              (item, index) => (
+                <div key={index} className="px-2">
+                  {!isLoading && componentdata ? (
+                    <ProductCard categorydata={item || {}} />
+                  ) : (
+                    <ProductCardSkeleton />
+                  )}
+                </div>
+              )
+            )}
           </Slider>
         </div>
       </div>

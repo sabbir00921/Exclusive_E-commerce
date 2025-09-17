@@ -1,14 +1,13 @@
 import React from "react";
 import { FaRegEye, FaRegHeart, FaStar } from "react-icons/fa";
-import image from "../../assets/products/p1.png";
 
-const ProductCard = () => {
+const ProductCard = ({ categorydata }) => {
   return (
     <div className="mt-10">
       <div className="bg-gray-100 flex flex-col items-center pb-12 relative rounded group">
         <div className="flex w-full items-start p-3 justify-between">
           <span className="inline-block text-sm font-poppins text-white-FFFFFF font-normal px-3 py-2 rounded bg-red">
-            -40%
+            -{categorydata.discountPercentage}%
           </span>
 
           <div className="flex flex-col gap-y-2 absolute right-2 top-3">
@@ -23,9 +22,9 @@ const ProductCard = () => {
 
         <div className="w-[172px] h-[150px]">
           <img
-            src={image}
-            alt={image}
-            className="h-full w-full object-contain"
+            src={categorydata?.images[0]}
+            alt={"Loading"}
+            className="h-full w-full object-contain transition duration-300 group-hover:scale-110"
           />
         </div>
         <div className="opacity-0 absolute rounded-b bottom-0 overly flex items-center justify-center cursor-pointer h-10 w-full bg-black text-white-FFFFFF font-poppins font-medium text-[16px] group-hover:opacity-100 transition-all">
@@ -34,23 +33,36 @@ const ProductCard = () => {
       </div>
       <div className="flex flex-col gap-y-2 items-start mt-4">
         <h2 className="text-lg font-poppins font-medium">
-          HAVIT HV-G92 Gamepad
+          {categorydata.title}
         </h2>
         <div className="flex gap-x-3">
           <span className=" text-red font-medium font-poppins text-[16px] inline-block">
-            $120
+            ${categorydata.price}
           </span>
           <span className=" text-text-black-gray font-medium font-poppins text-[16px] inline-block line-through">
-            $160
+            $
+            {(
+              categorydata.price +
+              categorydata.price * (categorydata.discountPercentage / 100)
+            ).toFixed(2)}
           </span>
         </div>
         <div className="flex gap-x-1 items-center cursor-pointer text-[14px] font-semibold">
-          {[...new Array(5)].map((_, index) => (
-            <span className="text-yellow-400 " key={index}>
+          {[...Array(5)].map((_, index) => (
+            <span
+              key={index}
+              className={
+                index < Math.floor(categorydata.rating)
+                  ? "text-yellow-400"
+                  : "text-gray-300"
+              }
+            >
               <FaStar />
             </span>
           ))}
-          <h2 className="opacity-60 ">{`(${[...new Array(5)].length})`}</h2>
+          <h2 className="opacity-60 ">{`${Math.floor(
+            categorydata.rating
+          )}`}</h2>
         </div>
       </div>
     </div>

@@ -33,8 +33,7 @@ const Banner = () => {
             alignItems: "center",
           }}
         >
-          {" "}
-          {dots}{" "}
+          {dots}
         </ul>
       </div>
     ),
