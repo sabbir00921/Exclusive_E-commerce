@@ -2,9 +2,9 @@ import React from "react";
 import Header from "../../components/rootLayout/Header/Index";
 import Navbar from "../../components/rootLayout/Navbar/Index";
 import Banner from "../../components/homePage/Banner/Index";
-import FlashSale from "../../components/homePage/FlashSale";
+import FlashSale from "../../components/homePage/FlashSale/Index";
 import Category from "../../components/homePage/Category/Index";
-import BestSelling from "../../components/homePage/BestSelling";
+import BestSelling from "../../components/homePage/BestSelling/Index";
 import Experience from "../../components/homePage/Experience";
 
 const Homepage = () => {
