@@ -13,7 +13,8 @@ const ProductCommonLayout = ({
   heading = "Today's",
   description = "Flash Sale",
   slidesToShow = 5,
-  componentdata,
+  componentdata = null,
+  viewButton = false,
   isLoading = false,
 }) => {
   const sliderRef = useRef(null);
@@ -54,22 +55,29 @@ const ProductCommonLayout = ({
                 </button>
               </div>
             )}
+            {viewButton && (
+              <button className="px-12 py-4 bg-red rounded text-md font-poppins font-medium text-white-FFFFFF opacity-95 hover:opacity-100 cursor-pointer">
+                {viewButton || "Missing Props"}
+              </button>
+            )}
           </div>
         </div>
 
         <div className="slider-container">
           <Slider ref={sliderRef} {...settings}>
-            {(componentdata ? componentdata : [...Array(10)])?.map(
-              (item, index) => (
-                <div key={index} className="px-2">
-                  {!isLoading && componentdata ? (
-                    <ProductCard categorydata={item || {}} />
-                  ) : (
+            {isLoading
+              ? [...Array(10)].map((_, index) => (
+                  <div key={index} className="px-2">
                     <ProductCardSkeleton />
-                  )}
-                </div>
-              )
-            )}
+                  </div>
+                ))
+              : componentdata && componentdata.length > 0
+              ? componentdata.map((item, index) => (
+                  <div key={index} className="px-2">
+                    <ProductCard categorydata={item} />
+                  </div>
+                ))
+              : null}
           </Slider>
         </div>
       </div>

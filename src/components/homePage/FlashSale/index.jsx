@@ -23,7 +23,7 @@ const FlashSale = () => {
           isLoading={isLoading}
         />
 
-        <div className="pb-20">
+        <div className="pb-20 flex justify-center">
           <button className="px-12 py-4 bg-red rounded text-md font-poppins font-medium text-white-FFFFFF opacity-95 hover:opacity-100 cursor-pointer">
             View All Products
           </button>

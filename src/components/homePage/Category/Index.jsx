@@ -20,7 +20,7 @@ const CategoryIndex = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="container pb-10">
       <div className=" items-center">
         <ProductCommonLayout
           ProductCard={categoryItem}
