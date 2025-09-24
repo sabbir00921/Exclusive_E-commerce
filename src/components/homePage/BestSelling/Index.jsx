@@ -3,7 +3,7 @@ import ProductCommonLayout from "../../commoncomponents/ProductCommonLayout";
 import ProductCard from "../../commoncomponents/ProductCard";
 import { useBestSellingProductQuery } from "../../../Features/Api/ProductApi";
 
-const BestSelling = () => {
+const Bestselling = () => {
   const { data, error, isLoading } = useBestSellingProductQuery();
 
   return (
@@ -21,4 +21,4 @@ const BestSelling = () => {
   );
 };
 
-export default BestSelling;
+export default Bestselling;

@@ -4,7 +4,7 @@ import Navbar from "../../components/rootLayout/Navbar/Index";
 import Banner from "../../components/homePage/Banner/Index";
 import FlashSale from "../../components/homePage/FlashSale/Index";
 import Category from "../../components/homePage/Category/Index";
-import BestSelling from "../../components/homePage/BestSelling/Index";
+import Bestselling from "../../components/homePage/BestSelling/Index";
 import Experience from "../../components/homePage/Experience/index";
 
 const Homepage = () => {
@@ -15,7 +15,7 @@ const Homepage = () => {
       <Banner />
       <FlashSale />
       <Category />
-      <BestSelling />
+      <Bestselling />
       <Experience />
     </div>
   );
