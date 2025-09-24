@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/rootLayout/Header/Index";
+import Header from "../../components/rootLayout/Header";
 import Navbar from "../../components/rootLayout/Navbar/Index";
 import Banner from "../../components/homePage/Banner/Index";
 import FlashSale from "../../components/homePage/FlashSale/Index";
