@@ -6,7 +6,7 @@ import { RiComputerLine } from "react-icons/ri";
 import { IoWatchOutline } from "react-icons/io5";
 import { TbDeviceGamepad } from "react-icons/tb";
 
-const CategoryIndex = () => {
+const Category = () => {
   const categoryBrowseData = [
     { id: 1, name: "Phones", image: <CiMobile1 /> },
     { id: 2, name: "Computers", image: <RiComputerLine /> },
@@ -35,4 +35,4 @@ const CategoryIndex = () => {
   );
 };
 
-export default CategoryIndex;
+export default Category;
